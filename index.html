@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VishTech Cars — Complete Growth Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --bg2: #111318;
+    --bg3: #1a1d24;
+    --accent: #f97316;
+    --accent2: #fb923c;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #eab308;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --border: #1e2535;
+    --card: #13161e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d24 100%);
+    border-bottom: 2px solid var(--accent);
+    padding: 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(249,115,22,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-top { display: flex; align-items: center; gap: 16px; margin-bottom: 8px; }
+  .logo-badge {
+    background: var(--accent);
+    color: #000;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header p { color: var(--text2); font-size: 15px; margin-top: 4px; }
+  .current-date {
+    position: absolute;
+    top: 28px; right: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    font-size: 13px;
+    background: rgba(249,115,22,0.1);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(249,115,22,0.3);
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    padding: 20px 32px 0;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+  }
+  .tab {
+    padding: 10px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text2);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* CONTENT */
+  .content { display: none; padding: 32px; max-width: 1100px; margin: 0 auto; }
+  .content.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+  /* CARDS */
+  .grid { display: grid; gap: 16px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; height: 2px;
+    background: linear-gradient(to right, var(--accent), transparent);
+  }
+  .card.green::before { background: linear-gradient(to right, var(--green), transparent); }
+  .card.blue::before { background: linear-gradient(to right, var(--blue), transparent); }
+  .card.purple::before { background: linear-gradient(to right, var(--purple), transparent); }
+  .card.yellow::before { background: linear-gradient(to right, var(--yellow), transparent); }
+  .card.red::before { background: linear-gradient(to right, var(--red), transparent); }
+
+  .card-label { font-size: 12px; color: var(--text2); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .card-value { font-size: 32px; font-weight: 700; color: #fff; font-family: 'JetBrains Mono', monospace; }
+  .card-value.accent { color: var(--accent); }
+  .card-value.green { color: var(--green); }
+  .card-value.red { color: var(--red); }
+  .card-sub { font-size: 13px; color: var(--text2); margin-top: 6px; }
+
+  /* WARNING BOX */
+  .warning {
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-left: 4px solid var(--red);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .warning-title { color: var(--red); font-weight: 700; font-size: 15px; margin-bottom: 6px; }
+  .warning p { color: var(--text2); font-size: 14px; line-height: 1.6; }
+
+  .info-box {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-left: 4px solid var(--blue);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .info-box p { color: var(--text2); font-size: 14px; line-height: 1.6; }
+  .info-box strong { color: var(--blue); }
+
+  .success-box {
+    background: rgba(34,197,94,0.08);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-left: 4px solid var(--green);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .success-box p { color: var(--text2); font-size: 14px; line-height: 1.6; }
+  .success-box strong { color: var(--green); }
+
+  /* TIMELINE */
+  .timeline { position: relative; padding-left: 32px; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--purple), var(--green));
+  }
+  .tl-item { position: relative; margin-bottom: 28px; }
+  .tl-dot {
+    position: absolute;
+    left: -26px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 3px rgba(249,115,22,0.2);
+  }
+  .tl-dot.green { background: var(--green); box-shadow: 0 0 0 3px rgba(34,197,94,0.2); }
+  .tl-dot.blue { background: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+  .tl-dot.purple { background: var(--purple); box-shadow: 0 0 0 3px rgba(168,85,247,0.2); }
+  .tl-phase {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tl-phase.green { color: var(--green); }
+  .tl-phase.blue { color: var(--blue); }
+  .tl-phase.purple { color: var(--purple); }
+  .tl-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .tl-body { background: var(--bg3); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+  .tl-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-key { color: var(--text2); }
+  .tl-val { color: #fff; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .tl-val.green { color: var(--green); }
+  .tl-val.yellow { color: var(--yellow); }
+  .tl-val.red { color: var(--red); }
+
+  /* TABLE */
+  .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--bg3);
+    color: var(--text2);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 12px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-yellow { background: rgba(234,179,8,0.15); color: var(--yellow); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .badge-orange { background: rgba(249,115,22,0.15); color: var(--accent); }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; }
+  .checklist li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text2);
+    line-height: 1.5;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .checklist li strong { color: var(--text); }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #79c0ff;
+    line-height: 1.7;
+    overflow-x: auto;
+    margin: 12px 0;
+  }
+  .code-block .cm { color: #8b949e; }
+  .code-block .cs { color: #a5d6ff; }
+  .code-block .cn { color: var(--green); }
+  .code-block .cw { color: var(--red); }
+  .code-block .cy { color: var(--yellow); }
+
+  /* PROGRESS BAR */
+  .progress-item { margin-bottom: 16px; }
+  .progress-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px; }
+  .progress-label span:first-child { color: var(--text); font-weight: 600; }
+  .progress-label span:last-child { color: var(--text2); font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+  .progress-bar { height: 8px; background: var(--bg3); border-radius: 4px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 4px; transition: width 1s ease; }
+
+  /* EARNING CHART */
+  .earning-chart { display: flex; align-items: flex-end; gap: 8px; height: 160px; padding: 0 8px; }
+  .bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .bar {
+    width: 100%;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    min-height: 8px;
+    transition: height 1s ease;
+    cursor: pointer;
+  }
+  .bar:hover { opacity: 0.85; }
+  .bar-label { font-size: 11px; color: var(--text2); text-align: center; white-space: nowrap; }
+  .bar-val { font-size: 12px; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: #fff; text-align: center; }
+
+  /* BRAND TABLE */
+  .brand-priority { display: flex; flex-direction: column; gap: 8px; }
+  .brand-row {
+    display: flex;
+    align-items: center;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  .brand-rank { font-size: 20px; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text2); width: 32px; }
+  .brand-name { flex: 1; font-size: 16px; font-weight: 700; color: #fff; }
+  .brand-models { font-size: 13px; color: var(--text2); }
+  .brand-priority-tag { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 4px; }
+
+  /* DAILY SCHEDULE */
+  .schedule { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .day-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  .day-name { font-size: 11px; color: var(--text2); letter-spacing: 1px; margin-bottom: 6px; }
+  .day-task { font-size: 12px; color: var(--text); font-weight: 600; line-height: 1.4; }
+  .day-count { font-size: 20px; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .tabs { padding: 16px 16px 0; }
+    .content { padding: 20px 16px; }
+    .header { padding: 20px 16px; }
+    .current-date { display: none; }
+    .schedule { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .mb16 { margin-bottom: 16px; }
+  .mb24 { margin-bottom: 24px; }
+  .mb32 { margin-bottom: 32px; }
+  .mt16 { margin-top: 16px; }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <span class="logo-badge">VISHTECHCARS.COM</span>
+    <span style="color:var(--text2);font-size:13px;">Growth Strategy Document</span>
+  </div>
+  <h1>Complete <span>Growth Roadmap</span></h1>
+  <p>Realistic plan — Quality + Consistency + Multi-source Earning</p>
+  <div class="current-date">May 2026</div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="showTab('current')">📊 Current Status</button>
+  <button class="tab" onclick="showTab('reality')">⚠️ Reality Check</button>
+  <button class="tab" onclick="showTab('strategy')">🗺️ Full Strategy</button>
+  <button class="tab" onclick="showTab('brands')">🚗 Brand Priority</button>
+  <button class="tab" onclick="showTab('schedule')">📅 Daily Schedule</button>
+  <button class="tab" onclick="showTab('earning')">💰 Earning Chart</button>
+  <button class="tab" onclick="showTab('adsense')">✅ AdSense Fix</button>
+</div>
+
+<!-- TAB 1: CURRENT STATUS -->
+<div id="tab-current" class="content active">
+  <p class="section-title"><span class="dot"></span> Teri Current Situation — May 2026</p>
+
+  <div class="grid grid-4 mb24">
+    <div class="card">
+      <div class="card-label">Impressions</div>
+      <div class="card-value accent">27K</div>
+      <div class="card-sub">Google Search Console</div>
+    </div>
+    <div class="card red">
+      <div class="card-label">Clicks</div>
+      <div class="card-value" style="color:var(--red)">200</div>
+      <div class="card-sub">Total clicks abhi tak</div>
+    </div>
+    <div class="card yellow">
+      <div class="card-label">CTR</div>
+      <div class="card-value" style="color:var(--yellow)">0.7%</div>
+      <div class="card-sub">Normal = 3-5% honi chahiye</div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">Website Age</div>
+      <div class="card-value" style="color:var(--blue)">4mo</div>
+      <div class="card-sub">Jan 2026 se shuru</div>
+    </div>
+  </div>
+
+  <div class="grid grid-2 mb24">
+    <div class="card red">
+      <div class="card-label">AdSense Status</div>
+      <div class="card-value" style="color:var(--red);font-size:20px;">❌ REJECTED</div>
+      <div class="card-sub" style="margin-top:10px;">Reason: Low Value Content<br>AI generated content detect hua</div>
+    </div>
+    <div class="card green">
+      <div class="card-label">Potential</div>
+      <div class="card-value" style="color:var(--green);font-size:20px;">✅ HIGH</div>
+      <div class="card-sub" style="margin-top:10px;">Car niche India mein evergreen hai<br>17 brands already cover hain</div>
+    </div>
+  </div>
+
+  <div class="warning">
+    <div class="warning-title">⚠️ CTR Problem — Sabse Pehle Yeh Fix Karo</div>
+    <p>27,000 log teri site Google mein dekh rahe hain par sirf 200 click kar rahe hain. Matlab tera <strong>Title aur Description</strong> attractive nahi hai. Yeh fix karo pehle — bina naya blog likhe traffic 3x tak badh sakta hai.</p>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> CTR Fix — Title Examples</p>
+  <div class="table-wrap mb24">
+    <table>
+      <thead><tr><th>❌ Bura Title</th><th>✅ Accha Title</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--red)">Maruti WagonR Review</td>
+          <td style="color:var(--green)">Maruti WagonR 2026 — ₹5.5 Lakh mein kya milta hai? Honest Review</td>
+        </tr>
+        <tr>
+          <td style="color:var(--red)">Tata Nexon Price</td>
+          <td style="color:var(--green)">Tata Nexon 2026 Price: ₹7.99L se shuru — CNG vs Petrol kaunsa lena chahiye?</td>
+        </tr>
+        <tr>
+          <td style="color:var(--red)">Mahindra XUV700 Features</td>
+          <td style="color:var(--green)">Mahindra XUV700 2026 — India ki sabse feature-loaded SUV? Full Breakdown</td>
+        </tr>
+        <tr>
+          <td style="color:var(--red)">Hyundai Creta Review</td>
+          <td style="color:var(--green)">Hyundai Creta 2026 vs Kia Seltos — ₹17 Lakh mein kaun jeeta?</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TAB 2: REALITY CHECK -->
+<div id="tab-reality" class="content">
+  <p class="section-title"><span class="dot"></span> Honest Reality — Bina Sugar Coating ke</p>
+
+  <div class="warning mb24">
+    <div class="warning-title">🚨 2-3 Mahine mein ₹10,000-15,000 — Possible NAHI Hai</div>
+    <p>Chahe 600-700 quality blogs bhi dal de — Google ko rank karne mein 3-6 mahine lagte hain. Yeh Google ka algorithm hai, isko change nahi kar sakte. Jo bhi yeh promise kare woh jhooth bol raha hai.</p>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Google Ranking Timeline — Ek Page Ka Safar</p>
+  <div class="timeline mb32">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-phase">Day 1-7</div>
+      <div class="tl-title">Blog Publish Hota Hai</div>
+      <div class="tl-body">
+        <div class="tl-row"><span class="tl-key">Google index karta hai</span><span class="tl-val yellow">3-7 din</span></div>
+        <div class="tl-row"><span class="tl-key">Traffic</span><span class="tl-val red">0 visitors</span></div>
+        <div class="tl-row"><span class="tl-key">Ranking</span><span class="tl-val red">Page 5-10+</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot" style="background:var(--yellow)"></div>
+      <div class="tl-phase" style="color:var(--yellow)">Month 1-2</div>
+      <div class="tl-title">Google Test Karta Hai</div>
+      <div class="tl-body">
+        <div class="tl-row"><span class="tl-key">Google page ko test karta hai</span><span class="tl-val yellow">Sandbox period</span></div>
+        <div class="tl-row"><span class="tl-key">Traffic</span><span class="tl-val yellow">2-5 visitors/day total</span></div>
+        <div class="tl-row"><span class="tl-key">Ranking</span><span class="tl-val yellow">Page 2-5</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot green"></div>
+      <div class="tl-phase green">Month 3-4</div>
+      <div class="tl-title">Ranking Shuru Hoti Hai</div>
+      <div class="tl-body">
+        <div class="tl-row"><span class="tl-key">Kuch pages page 1 pe aane lagte hain</span><span class="tl-val green">🚀 Growth start</span></div>
+        <div class="tl-row"><span class="tl-key">Traffic</span><span class="tl-val green">20-50 visitors/day</span></div>
+        <div class="tl-row"><span class="tl-key">Earning</span><span class="tl-val green">₹200-500/month</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot blue"></div>
+      <div class="tl-phase blue">Month 6+</div>
+      <div class="tl-title">Real Growth</div>
+      <div class="tl-body">
+        <div class="tl-row"><span class="tl-key">Compound effect shuru</span><span class="tl-val" style="color:var(--blue)">Snowball effect</span></div>
+        <div class="tl-row"><span class="tl-key">Traffic</span><span class="tl-val" style="color:var(--blue)">200-500 visitors/day</span></div>
+        <div class="tl-row"><span class="tl-key">Earning</span><span class="tl-val" style="color:var(--blue)">₹2,000-8,000/month</span></div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot purple"></div>
+      <div class="tl-phase purple">Month 12+</div>
+      <div class="tl-title">Serious Income</div>
+      <div class="tl-body">
+        <div class="tl-row"><span class="tl-key">300-500 quality pages live</span><span class="tl-val" style="color:var(--purple)">Authority site</span></div>
+        <div class="tl-row"><span class="tl-key">Traffic</span><span class="tl-val" style="color:var(--purple)">1000-3000 visitors/day</span></div>
+        <div class="tl-row"><span class="tl-key">Earning (all sources)</span><span class="tl-val" style="color:var(--purple)">₹15,000-45,000/month</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Quality vs Quantity:</strong> 1 detailed 1200-word blog Google ke liye 10 average 300-word blogs se zyada valuable hai. 3 blogs/day mat dal — <strong>1 perfect blog/day dal</strong>. Wahi zyada traffic laayega.</p>
+  </div>
+</div>
+
+<!-- TAB 3: FULL STRATEGY -->
+<div id="tab-strategy" class="content">
+  <p class="section-title"><span class="dot"></span> 12 Month Full Strategy</p>
+
+  <div class="grid grid-3 mb24">
+    <div class="card">
+      <div class="card-label">Phase 1 — Foundation</div>
+      <div class="card-value accent" style="font-size:20px;">Month 1-3</div>
+      <div class="card-sub" style="margin-top:8px;">Quality blogs + CTR fix + AdSense ready karo</div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">Phase 2 — Growth</div>
+      <div class="card-value" style="color:var(--blue);font-size:20px;">Month 4-6</div>
+      <div class="card-sub" style="margin-top:8px;">Traffic aana shuru, AdSense approve, Affiliate add karo</div>
+    </div>
+    <div class="card green">
+      <div class="card-label">Phase 3 — Income</div>
+      <div class="card-value" style="color:var(--green);font-size:20px;">Month 7-12</div>
+      <div class="card-sub" style="margin-top:8px;">Multiple income sources, sponsored posts, authority site</div>
+    </div>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Phase 1: Month 1-3 (Ab se shuru)</p>
+  <div class="card mb24">
+    <ul class="checklist">
+      <li><span class="check-icon">🎯</span><div><strong>Week 1-2: Purane blogs ke titles fix karo</strong> — Sab CTR-optimized titles likhao. Yeh sabse fast traffic increase method hai.</div></li>
+      <li><span class="check-icon">📝</span><div><strong>1 quality blog/day — minimum 1000 words</strong> — Maruti ke sabhi models se shuru karo (highest search volume India mein)</div></li>
+      <li><span class="check-icon">📰</span><div><strong>News section daily — 1 short news post</strong> — 200-300 words kaafi, sirf real news, koi AI content nahi</div></li>
+      <li><span class="check-icon">🔗</span><div><strong>Internal linking — har blog mein 2-3 related car links</strong> — WagonR se Alto, Alto se Swift, Swift se budget page</div></li>
+      <li><span class="check-icon">🖼️</span><div><strong>Har blog mein original images/screenshots</strong> — AI content penalty avoid karne ke liye</div></li>
+      <li><span class="check-icon">❌</span><div><strong>Zero AI copy-paste content</strong> — Jo purane AI blogs hain, unhe manually rewrite karo ek ek karke</div></li>
+    </ul>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Phase 2: Month 4-6</p>
+  <div class="card mb24">
+    <ul class="checklist">
+      <li><span class="check-icon">💳</span><div><strong>AdSense reapply karo</strong> — Jab 80-100 quality pages ho jaayein, tab apply karo</div></li>
+      <li><span class="check-icon">🤝</span><div><strong>CarDekho Affiliate join karo</strong> — Free hai, har lead pe ₹200-500 milta hai</div></li>
+      <li><span class="check-icon">📊</span><div><strong>Comparison blogs likhna shuru karo</strong> — "Creta vs Seltos", "Nexon vs Punch" — highest CTR wale blogs</div></li>
+      <li><span class="check-icon">🏷️</span><div><strong>Budget category pages update karo</strong> — Under 10 lakh, under 20 lakh pages mein affiliate links daalo</div></li>
+      <li><span class="check-icon">📱</span><div><strong>Social media shuru karo</strong> — Instagram/YouTube Shorts — blog ka summary 60 second mein, website pe link</div></li>
+    </ul>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Phase 3: Month 7-12</p>
+  <div class="card mb24">
+    <ul class="checklist">
+      <li><span class="check-icon">💰</span><div><strong>Sponsored posts offer karo</strong> — Chhoti car accessory companies ko email karo — ₹2,000-5,000/post</div></li>
+      <li><span class="check-icon">🎥</span><div><strong>YouTube channel start karo</strong> — Same content, video format mein. Double earning same mehnat mein</div></li>
+      <li><span class="check-icon">📧</span><div><strong>Email newsletter shuru karo</strong> — "Weekly car deals" — returning traffic build karo</div></li>
+      <li><span class="check-icon">🔄</span><div><strong>Purane blogs update karo quarterly</strong> — Har 3 mahine mein trending models ke blogs update karo</div></li>
+      <li><span class="check-icon">👥</span><div><strong>Team hire karo agar afford karo</strong> — 1 writer ₹5,000-8,000/month mein 15-20 quality blogs/month de sakta hai</div></li>
+    </ul>
+  </div>
+</div>
+
+<!-- TAB 4: BRAND PRIORITY -->
+<div id="tab-brands" class="content">
+  <p class="section-title"><span class="dot"></span> Brand + Model Priority List</p>
+
+  <div class="info-box mb24">
+    <p><strong>Strategy:</strong> Sabse zyada search hone wale brands pehle complete karo. India mein Maruti + Tata + Hyundai = 65% car market share hai — inhe pehle complete karna zaroori hai.</p>
+  </div>
+
+  <div class="table-wrap mb32">
+    <table>
+      <thead>
+        <tr>
+          <th>Priority</th>
+          <th>Brand</th>
+          <th>Key Models (Blog Banana Hai)</th>
+          <th>Search Volume</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge badge-red">🔥 #1</span></td>
+          <td style="font-weight:700;color:#fff">Maruti Suzuki</td>
+          <td style="color:var(--text2);font-size:13px">WagonR, Alto K10, Swift, Dzire, Baleno, Brezza, Ertiga, Fronx, Jimny, Grand Vitara, Ciaz, S-Presso</td>
+          <td><span class="badge badge-red">Very High</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-red">🔥 #2</span></td>
+          <td style="font-weight:700;color:#fff">Tata Motors</td>
+          <td style="color:var(--text2);font-size:13px">Nexon, Punch, Tiago, Tigor, Harrier, Safari, Altroz, Curvv, Sierra EV, Avinya</td>
+          <td><span class="badge badge-red">Very High</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-orange">⚡ #3</span></td>
+          <td style="font-weight:700;color:#fff">Hyundai</td>
+          <td style="color:var(--text2);font-size:13px">Creta, i20, Venue, Alcazar, Exter, Tucson, Ioniq 5, Grand i10</td>
+          <td><span class="badge badge-red">High</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-orange">⚡ #4</span></td>
+          <td style="font-weight:700;color:#fff">Mahindra</td>
+          <td style="color:var(--text2);font-size:13px">XUV700, XUV400, Thar, Scorpio N, Scorpio Classic, BE6, XEV 9e, Bolero, Bolero Neo</td>
+          <td><span class="badge badge-red">High</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-yellow">📌 #5</span></td>
+          <td style="font-weight:700;color:#fff">Kia</td>
+          <td style="color:var(--text2);font-size:13px">Seltos, Sonet, Carens, EV6, Clavis</td>
+          <td><span class="badge badge-yellow">Medium-High</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-yellow">📌 #6</span></td>
+          <td style="font-weight:700;color:#fff">Honda</td>
+          <td style="color:var(--text2);font-size:13px">Amaze, City, Elevate, WR-V, Jazz</td>
+          <td><span class="badge badge-yellow">Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-yellow">📌 #7</span></td>
+          <td style="font-weight:700;color:#fff">Toyota</td>
+          <td style="color:var(--text2);font-size:13px">Innova Crysta, Innova HyCross, Fortuner, Urban Cruiser, Glanza, Camry</td>
+          <td><span class="badge badge-yellow">Medium</span></td>
+          <td><span class="badge badge-blue">Pending</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">📋 #8</span></td>
+          <td style="font-weight:700;color:#fff">MG Motor</td>
+          <td style="color:var(--text2);font-size:13px">Hector, Astor, Gloster, Windsor EV, Comet EV</td>
+          <td><span class="badge badge-blue">Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">📋 #9</span></td>
+          <td style="font-weight:700;color:#fff">Skoda</td>
+          <td style="color:var(--text2);font-size:13px">Kushaq, Slavia, Kodiaq, Superb, Octavia</td>
+          <td><span class="badge badge-blue">Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-blue">📋 #10</span></td>
+          <td style="font-weight:700;color:#fff">Volkswagen</td>
+          <td style="color:var(--text2);font-size:13px">Virtus, Taigun, Tiguan, Passat</td>
+          <td><span class="badge badge-blue">Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">💎 Later</span></td>
+          <td style="font-weight:700;color:#fff">Renault</td>
+          <td style="color:var(--text2);font-size:13px">Kwid, Triber, Duster, Kiger</td>
+          <td><span class="badge badge-blue">Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">💎 Later</span></td>
+          <td style="font-weight:700;color:#fff">Nissan</td>
+          <td style="color:var(--text2);font-size:13px">Magnite, GT-R</td>
+          <td><span class="badge badge-blue">Low-Medium</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-green">💎 Later</span></td>
+          <td style="font-weight:700;color:#fff">Luxury (BMW/Mercedes/Lamborghini)</td>
+          <td style="color:var(--text2);font-size:13px">Top models — aspirational content</td>
+          <td><span class="badge badge-green">Low Volume</span></td>
+          <td><span class="badge badge-yellow">Partial</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="info-box">
+    <p><strong>Bonus Tip:</strong> "Comparison" blogs sabse zyada click hote hain — "WagonR vs Alto", "Nexon vs Punch", "Creta vs Seltos" — yeh blogs likhna shuru karo. Inki CTR 5-8% hoti hai vs normal blogs ki 1-2%.</p>
+  </div>
+</div>
+
+<!-- TAB 5: DAILY SCHEDULE -->
+<div id="tab-schedule" class="content">
+  <p class="section-title"><span class="dot"></span> Recommended Daily Schedule</p>
+
+  <div class="warning mb24">
+    <div class="warning-title">3 blogs/day mat daalo — Quality suffer karegi</div>
+    <p>1 perfect blog (1000-1500 words) + 1 short news post = best strategy. Google 1 accha page prefer karta hai 3 average pages se.</p>
+  </div>
+
+  <div class="grid grid-2 mb24">
+    <div class="card green">
+      <div class="card-label">✅ Recommended Plan</div>
+      <div style="margin-top:12px;">
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">Morning (1-2 hrs)</span><span class="tl-val green">1 Quality Blog — 1000-1500 words</span></div>
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">Evening (30 min)</span><span class="tl-val green">1 News Post — 200-300 words</span></div>
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">Weekly (Sunday)</span><span class="tl-val green">5 old blogs ke titles update karo</span></div>
+        <div class="tl-row" style="padding:8px 0;border:none"><span class="tl-key">Monthly</span><span class="tl-val green">Top 10 blogs fully refresh karo</span></div>
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-label">❌ Avoid Karo</div>
+      <div style="margin-top:12px;">
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">3+ blogs ek din mein</span><span class="tl-val red">Quality suffer</span></div>
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">AI se copy paste</span><span class="tl-val red">AdSense reject</span></div>
+        <div class="tl-row" style="padding:8px 0;"><span class="tl-key">300-400 word blogs</span><span class="tl-val red">Google rank nahi karta</span></div>
+        <div class="tl-row" style="padding:8px 0;border:none"><span class="tl-key">Week skip karna</span><span class="tl-val red">Google authority drop</span></div>
+      </div>
+    </div>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Ek Perfect Blog mein Kya Hona Chahiye</p>
+  <div class="card mb24">
+    <ul class="checklist">
+      <li><span class="check-icon">📌</span><div><strong>Title (H1):</strong> Car ka naam + year + price mention + question/emotion — "Maruti WagonR 2026 — ₹5.5 Lakh mein Kya Milta Hai?"</div></li>
+      <li><span class="check-icon">📋</span><div><strong>Introduction (100-150 words):</strong> Car ka short intro, buyer ke liye kyun relevant hai</div></li>
+      <li><span class="check-icon">💰</span><div><strong>Price & Variants Table:</strong> Saare variants ki ex-showroom price — yeh sabse zyada search hota hai</div></li>
+      <li><span class="check-icon">⚡</span><div><strong>Key Specifications:</strong> Engine, mileage, dimensions, safety rating</div></li>
+      <li><span class="check-icon">✅</span><div><strong>Pros & Cons:</strong> Honest 5-7 points each — Google ko yeh original content lagta hai</div></li>
+      <li><span class="check-icon">🆚</span><div><strong>Competitor Comparison:</strong> 1-2 rival cars se compare karo with internal links</div></li>
+      <li><span class="check-icon">👥</span><div><strong>Buyer's Verdict:</strong> Kis type ke buyer ke liye hai — family, first car, city use, highway</div></li>
+      <li><span class="check-icon">❓</span><div><strong>FAQ Section (5-7 questions):</strong> Google Featured Snippet ke liye — "WagonR mileage kitna hai?", "WagonR petrol ya CNG?"</div></li>
+      <li><span class="check-icon">🔗</span><div><strong>Internal Links (2-3):</strong> Related cars ke pages pe link daalo</div></li>
+    </ul>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> 90 Days Content Calendar</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Month</th><th>Focus Brand</th><th>Blogs Target</th><th>News Posts</th><th>Special Task</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--accent);font-weight:700">Month 1 (June)</td>
+          <td>Maruti Suzuki</td>
+          <td><span class="badge badge-orange">25-30 blogs</span></td>
+          <td>20-25 news</td>
+          <td>Purane AI blogs rewrite karo</td>
+        </tr>
+        <tr>
+          <td style="color:var(--blue);font-weight:700">Month 2 (July)</td>
+          <td>Tata + Hyundai</td>
+          <td><span class="badge badge-blue">25-30 blogs</span></td>
+          <td>20-25 news</td>
+          <td>Comparison blogs shuru karo</td>
+        </tr>
+        <tr>
+          <td style="color:var(--green);font-weight:700">Month 3 (August)</td>
+          <td>Mahindra + Kia</td>
+          <td><span class="badge badge-green">25-30 blogs</span></td>
+          <td>20-25 news</td>
+          <td>AdSense reapply karo</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TAB 6: EARNING CHART -->
+<div id="tab-earning" class="content">
+  <p class="section-title"><span class="dot"></span> Realistic Earning Projections</p>
+
+  <div class="warning mb24">
+    <div class="warning-title">⚠️ Yeh Projections Conservative Hain — Best Case Nahi</div>
+    <p>Sirf tab sach honge jab consistent quality content aata rahe aur Google penalties na hon. Actual earning upar ya neeche dono ho sakti hai.</p>
+  </div>
+
+  <div class="table-wrap mb32">
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Quality Pages</th>
+          <th>Visitors/Day</th>
+          <th>AdSense Only</th>
+          <th>AdSense + Affiliate</th>
+          <th>All Sources</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--text2)">Abhi (May 2026)</td>
+          <td>~30-40</td>
+          <td style="color:var(--red)">6-7/day</td>
+          <td style="color:var(--red)">₹0</td>
+          <td style="color:var(--red)">₹0</td>
+          <td style="color:var(--red)">₹0</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent);font-weight:700">3 Months (Aug)</td>
+          <td>100-120</td>
+          <td style="color:var(--yellow)">50-150/day</td>
+          <td style="color:var(--yellow)">₹300-800</td>
+          <td style="color:var(--yellow)">₹800-2,000</td>
+          <td style="color:var(--yellow)">₹1,000-2,500</td>
+        </tr>
+        <tr>
+          <td style="color:var(--blue);font-weight:700">6 Months (Nov)</td>
+          <td>200-250</td>
+          <td style="color:var(--blue)">200-500/day</td>
+          <td style="color:var(--blue)">₹1,500-3,500</td>
+          <td style="color:var(--blue)">₹3,000-7,000</td>
+          <td style="color:var(--blue)">₹4,000-9,000</td>
+        </tr>
+        <tr>
+          <td style="color:var(--green);font-weight:700">9 Months (Feb 27)</td>
+          <td>350-400</td>
+          <td style="color:var(--green)">500-1000/day</td>
+          <td style="color:var(--green)">₹3,000-6,000</td>
+          <td style="color:var(--green)">₹6,000-12,000</td>
+          <td style="color:var(--green)">₹8,000-16,000</td>
+        </tr>
+        <tr style="background:rgba(34,197,94,0.05)">
+          <td style="color:var(--purple);font-weight:700">12 Months (May 27)</td>
+          <td>500+</td>
+          <td style="color:var(--purple)">1000-3000/day</td>
+          <td style="color:var(--purple)">₹5,000-12,000</td>
+          <td style="color:var(--purple)">₹10,000-22,000</td>
+          <td style="color:var(--purple)">₹15,000-35,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> 3 Earning Sources — Kaise Kaam Karte Hain</p>
+  <div class="grid grid-3 mb24">
+    <div class="card">
+      <div class="card-label">Source 1</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin:8px 0">Google AdSense</div>
+      <div class="card-sub" style="line-height:1.7">
+        RPM: ₹80-200 per 1000 visitors<br>
+        Apply kab: 80+ quality pages ke baad<br>
+        Approval time: 2-4 weeks<br>
+        <strong style="color:var(--accent)">Earning share: 30-40%</strong>
+      </div>
+    </div>
+    <div class="card blue">
+      <div class="card-label">Source 2</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin:8px 0">Car Affiliate Programs</div>
+      <div class="card-sub" style="line-height:1.7">
+        CarDekho: ₹200-500 per lead<br>
+        CarWale: ₹150-400 per lead<br>
+        Spinny/Cars24: ₹300-800 per sale<br>
+        <strong style="color:var(--blue)">Earning share: 40-50%</strong>
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-label">Source 3</div>
+      <div style="font-size:18px;font-weight:700;color:#fff;margin:8px 0">Sponsored Content</div>
+      <div class="card-sub" style="line-height:1.7">
+        Car accessories brands<br>
+        Insurance companies<br>
+        Per post: ₹2,000-10,000<br>
+        <strong style="color:var(--green)">Earning share: 20-30%</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="success-box">
+    <p><strong>Important:</strong> ₹10,000-15,000/month ka target 9-12 mahine mein realistic hai — 2-3 mahine mein nahi. Yeh ek business hai, job nahi — results time lagte hain. Jo consistently kaam karta hai woh definitely kamata hai.</p>
+  </div>
+</div>
+
+<!-- TAB 7: ADSENSE FIX -->
+<div id="tab-adsense" class="content">
+  <p class="section-title"><span class="dot"></span> AdSense Approve Kaise Karo</p>
+
+  <div class="warning mb24">
+    <div class="warning-title">Reject Reason: "Low Value Content" — Matlab AI Content Detect Hua</div>
+    <p>Google ka AI detector bahut smart hai. ChatGPT/Claude ka copy-paste content 90% cases mein detect hota hai. Abhi jo purane AI blogs hain unhe rewrite karna hoga.</p>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> AdSense Approval Checklist</p>
+  <div class="card mb24">
+    <ul class="checklist">
+      <li><span class="check-icon">📄</span><div><strong>Minimum 30-40 quality pages hone chahiye</strong> — Sirf wo pages count honge jo 800+ words ke hon aur manually likhe hon</div></li>
+      <li><span class="check-icon">📅</span><div><strong>Website 3+ mahine purani honi chahiye</strong> — Teri website January se hai ✅ — yeh condition poori hai</div></li>
+      <li><span class="check-icon">📜</span><div><strong>Privacy Policy page</strong> — Tera hai ya nahi? Agar nahi to banao — Google required karta hai</div></li>
+      <li><span class="check-icon">📞</span><div><strong>About Us + Contact page</strong> — Properly filled hone chahiye — naam, email, address</div></li>
+      <li><span class="check-icon">🚫</span><div><strong>Zero AI content</strong> — Sabhi AI-generated blogs ya to delete karo ya manually rewrite karo</div></li>
+      <li><span class="check-icon">🖼️</span><div><strong>Copyright free images only</strong> — Kisi bhi manufacturer ya news site se images copy mat karo — legal issue + AdSense reject</div></li>
+      <li><span class="check-icon">📱</span><div><strong>Mobile friendly website</strong> — Google mobile-first index karta hai — teri site already responsive hai ✅</div></li>
+      <li><span class="check-icon">⚡</span><div><strong>Page speed</strong> — WebP images use karo (tera site already kar raha hai ✅)</div></li>
+      <li><span class="check-icon">🔗</span><div><strong>No broken links</strong> — Har link kaam karna chahiye — broken links = bad signal</div></li>
+    </ul>
+  </div>
+
+  <p class="section-title"><span class="dot"></span> Reapply Karne Ka Sahi Time</p>
+  <div class="grid grid-3">
+    <div class="card red">
+      <div class="card-label">Abhi Apply Mat Karo</div>
+      <div style="margin-top:10px;font-size:14px;color:var(--text2);line-height:1.7">
+        AI content abhi bhi hai<br>
+        Purane blogs rewrite nahi hue<br>
+        <strong style="color:var(--red)">Reject hoga dobara</strong>
+      </div>
+    </div>
+    <div class="card yellow">
+      <div class="card-label">2 Mahine Baad (July/Aug)</div>
+      <div style="margin-top:10px;font-size:14px;color:var(--text2);line-height:1.7">
+        50+ manual quality blogs<br>
+        AI content cleaned<br>
+        <strong style="color:var(--yellow)">Chances: 60-70%</strong>
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-label">3 Mahine Baad (Sept)</div>
+      <div style="margin-top:10px;font-size:14px;color:var(--text2);line-height:1.7">
+        80-100 quality pages<br>
+        Daily news + regular posting<br>
+        <strong style="color:var(--green)">Chances: 85-90% ✅</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
