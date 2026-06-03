@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>90 Din Social Media Creator Roadmap — Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#0f0f0f;color:#f1f1f1;line-height:1.7}
+.hero{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);padding:60px 20px;text-align:center;border-bottom:4px solid #f97316;position:relative}
+.hero-badge{display:inline-block;background:#dc2626;color:#fff;font-size:12px;font-weight:700;padding:5px 18px;border-radius:50px;letter-spacing:2px;margin-bottom:20px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.hero h1{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:1.15;margin-bottom:18px}
+.hero h1 span{color:#f97316}
+.hero p{font-size:1rem;color:#94a3b8;max-width:680px;margin:0 auto 28px}
+.warn-box{background:rgba(220,38,38,.12);border:2px solid #dc2626;border-radius:14px;padding:22px 28px;max-width:680px;margin:0 auto;text-align:left}
+.warn-box h3{color:#f87171;font-size:1rem;margin-bottom:8px}
+.warn-box p{color:#fca5a5;font-size:.9rem}
+.container{max-width:1000px;margin:0 auto;padding:0 20px}
+.section{padding:56px 20px}
+.sec-title{font-size:1.8rem;font-weight:800;margin-bottom:6px}
+.sec-title span{color:#f97316}
+.sec-sub{color:#94a3b8;font-size:.9rem;margin-bottom:36px}
+/* ODDS */
+.odds-section{background:#1a1a1a}
+.odds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.oc{border-radius:14px;padding:26px;border:2px solid}
+.oc.bad{border-color:#dc2626;background:rgba(220,38,38,.08)}
+.oc.med{border-color:#d97706;background:rgba(217,119,6,.08)}
+.oc.good{border-color:#16a34a;background:rgba(22,163,74,.08)}
+.oc .pct{font-size:3rem;font-weight:900;line-height:1;margin-bottom:6px}
+.bad .pct{color:#f87171}.med .pct{color:#fbbf24}.good .pct{color:#4ade80}
+.oc h4{font-size:.95rem;font-weight:700;margin-bottom:10px}
+.oc ul{list-style:none}
+.oc ul li{font-size:.84rem;color:#94a3b8;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.oc ul li:last-child{border:none}
+.oc ul li::before{content:"→ ";color:#4b5563}
+/* NICHE */
+.niche-section{background:#111}
+.niche-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.nc{background:#1e1e1e;border-radius:18px;padding:28px;border:1px solid #333;transition:.3s;position:relative}
+.nc:hover{border-color:#f97316;transform:translateY(-4px)}
+.nc.top{border:2px solid #f97316;background:linear-gradient(135deg,#1e1e1e,#1a1000)}
+.nc.top2{border:2px solid #3b82f6;background:linear-gradient(135deg,#1e1e1e,#00051a)}
+.top-badge{position:absolute;top:-13px;left:22px;font-size:11px;font-weight:800;padding:3px 14px;border-radius:50px;letter-spacing:1px}
+.nc-icon{font-size:2.2rem;margin-bottom:14px}
+.nc h3{font-size:1.1rem;font-weight:800;margin-bottom:4px}
+.nc .nsub{font-size:.82rem;color:#f97316;font-weight:600;margin-bottom:14px}
+.nstat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.ns{background:rgba(255,255,255,.05);border-radius:8px;padding:10px;text-align:center}
+.ns .v{font-size:1rem;font-weight:800;color:#f97316}
+.ns .l{font-size:.72rem;color:#4b5563;margin-top:2px}
+.dtag{display:inline-block;background:rgba(249,115,22,.12);color:#fb923c;font-size:.75rem;padding:2px 9px;border-radius:18px;margin:2px 2px 2px 0;border:1px solid rgba(249,115,22,.25)}
+/* SCHEDULE */
+.sched-section{background:#0f0f0f}
+.phase{background:#1a1a1a;border-radius:18px;margin-bottom:20px;overflow:hidden;border:1px solid #2a2a2a}
+.ph{padding:22px 28px;display:flex;align-items:center;gap:18px}
+.ph.p1{background:linear-gradient(90deg,rgba(37,99,235,.25),transparent);border-left:5px solid #3b82f6}
+.ph.p2{background:linear-gradient(90deg,rgba(249,115,22,.25),transparent);border-left:5px solid #f97316}
+.ph.p3{background:linear-gradient(90deg,rgba(22,163,74,.25),transparent);border-left:5px solid #22c55e}
+.pnum{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:900;flex-shrink:0}
+.p1 .pnum{background:#3b82f6}.p2 .pnum{background:#f97316}.p3 .pnum{background:#22c55e;color:#000}
+.pht h3{font-size:1.05rem;font-weight:800}
+.pht p{font-size:.84rem;color:#94a3b8}
+.pbody{padding:0 28px 26px}
+.wrow{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid #252525;align-items:start}
+.wrow:last-child{border:none}
+.wlbl{background:rgba(249,115,22,.12);color:#f97316;font-size:.78rem;font-weight:700;padding:5px 10px;border-radius:7px;text-align:center;margin-top:3px}
+.wtasks{display:flex;flex-direction:column;gap:7px}
+.ti{background:rgba(255,255,255,.03);border-radius:9px;padding:11px 14px;font-size:.87rem;border-left:3px solid #333;display:flex;align-items:flex-start;gap:9px}
+.ti.must{border-left-color:#f97316}
+.ti.cont{border-left-color:#3b82f6}
+.ti.grow{border-left-color:#22c55e}
+.ti.money{border-left-color:#fbbf24}
+.ti strong{display:block;color:#f1f1f1;font-weight:600;font-size:.87rem}
+.ti span{color:#4b5563;font-size:.8rem}
+/* FORMULA */
+.formula-section{background:#1a1a1a}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.fc{background:#111;border-radius:14px;padding:26px;border:1px solid #2a2a2a}
+.fc h4{font-size:.95rem;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fb{font-size:.7rem;padding:2px 9px;border-radius:18px;font-weight:700}
+.fv{background:rgba(220,38,38,.15);color:#f87171}
+.fs{background:rgba(37,99,235,.15);color:#60a5fa}
+.fm{background:rgba(217,119,6,.15);color:#fbbf24}
+.fex{background:rgba(249,115,22,.07);border:1px solid rgba(249,115,22,.18);border-radius:10px;padding:14px;margin:14px 0;font-size:.85rem;color:#d1d5db;font-style:italic;line-height:1.9;white-space:pre-line}
+.fwhy{font-size:.8rem;color:#4b5563}
+/* INCOME */
+.income-section{background:#0f0f0f}
+.itbl{width:100%;border-collapse:collapse;border-radius:14px;overflow:hidden}
+.itbl th{background:#1e1e1e;padding:14px 18px;font-size:.84rem;color:#94a3b8;text-align:left;font-weight:600;border-bottom:2px solid #333}
+.itbl td{padding:14px 18px;font-size:.88rem;border-bottom:1px solid #1e1e1e;background:#141414}
+.itbl tr:hover td{background:#1a1a1a}
+.itbl td:first-child{font-weight:700;color:#f97316}
+.tg{color:#4ade80;font-weight:700}.ty{color:#fbbf24;font-weight:700}.tgr{color:#4b5563}
+/* TOOLS */
+.tools-section{background:#1a1a1a}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.tc{background:#111;border-radius:12px;padding:18px;border:1px solid #2a2a2a;transition:.3s}
+.tc:hover{border-color:#f97316}
+.tc h5{font-size:.9rem;font-weight:700;margin-bottom:3px}
+.tc p{font-size:.79rem;color:#4b5563;margin-bottom:7px}
+.tf{display:inline-block;background:rgba(22,163,74,.15);color:#4ade80;font-size:.72rem;padding:2px 9px;border-radius:18px;font-weight:600}
+/* DM */
+.dm-section{background:#0f0f0f}
+.dc{background:#1a1a1a;border-radius:14px;padding:26px;border:1px solid #2a2a2a;margin-bottom:18px}
+.dc h4{font-size:.95rem;font-weight:700;color:#f97316;margin-bottom:14px}
+.dtext{background:#111;border-radius:10px;padding:18px;font-size:.87rem;color:#d1d5db;line-height:1.9;border-left:4px solid #f97316;white-space:pre-line}
+.dnote{font-size:.79rem;color:#4b5563;margin-top:10px}
+/* CHECKLIST */
+.check-section{background:#111}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.cg{background:#1a1a1a;border-radius:14px;padding:22px;border:1px solid #2a2a2a}
+.cg h4{font-size:.95rem;font-weight:700;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a2a2a}
+.ci{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:.85rem;color:#d1d5db;border-bottom:1px solid rgba(255,255,255,.04);cursor:pointer}
+.ci:last-child{border:none}
+.cb{width:19px;height:19px;border:2px solid #333;border-radius:4px;flex-shrink:0;margin-top:1px;transition:.2s}
+.cb:hover{border-color:#f97316}
+/* VERDICT */
+.verdict{background:linear-gradient(135deg,#1a0a00,#0a1a0a);border-top:2px solid #f97316;border-bottom:2px solid #22c55e;padding:56px 20px;text-align:center}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;max-width:800px;margin:36px auto 0}
+.vi{background:rgba(255,255,255,.04);border-radius:14px;padding:22px;border:1px solid #333}
+.vi .vico{font-size:1.8rem;margin-bottom:10px}
+.vi h4{font-size:.9rem;font-weight:700;margin-bottom:5px}
+.vi p{font-size:.8rem;color:#4b5563}
+.divider{height:1px;background:linear-gradient(90deg,transparent,#2a2a2a,transparent);margin:0 20px}
+footer{background:#080808;text-align:center;padding:36px 20px;color:#4b5563;font-size:.82rem;border-top:1px solid #1a1a1a}
+footer strong{color:#f97316}
+@media(max-width:600px){.wrow{grid-template-columns:1fr}.nstat{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">⚠️ HONEST GUIDE — NO FAKE PROMISES</div>
+  <h1>90 Din Mein <span>Social Media Creator</span><br>Banne Ka Complete Roadmap</h1>
+  <p>Tumhari skills: AI Image + Text Overlay + Consistency. Is guide mein sab kuch hai — niche selection, daily schedule, content formulas, DM templates, aur income ka sach.</p>
+  <div class="warn-box">
+    <h3>🔴 Pehle Ye Padho — Important</h3>
+    <p>Koi bhi 100% guarantee nahi de sakta social media growth ki. Jo pages 407K aur 1.6M tak pahunche — unhe 2-5 saal lage. 90 din mein <strong>10,000-25,000 followers possible hai</strong> agar sab consistently karo. Crore income ke liye 2-3 saal chahiye. Ye guide honest numbers pe based hai.</p>
+  </div>
+</div>
+<a class="nav-link" href="index.html">home</a>
+
+<!-- ODDS -->
+<div class="section odds-section">
+  <div class="container">
+    <div class="sec-title">Success Rate — <span>Sach Kya Hai</span></div>
+    <div class="sec-sub">India mein har 100 log jo Instagram page shuru karte hain, unka kya hota hai</div>
+    <div class="odds-grid">
+      <div class="oc bad">
+        <div class="pct">70%</div>
+        <h4>Quit kar dete hain</h4>
+        <ul>
+          <li>Pehle 30 din mein band</li>
+          <li>Results nahi — discourage</li>
+          <li>Consistency nahi reh pati</li>
+          <li>Strategy nahi hoti</li>
+        </ul>
+      </div>
+      <div class="oc med">
+        <div class="pct">25%</div>
+        <h4>Average reh jaate hain</h4>
+        <ul>
+          <li>1K-10K followers 1 saal mein</li>
+          <li>Chhoti brand deals milti hain</li>
+          <li>₹5,000-20,000/month</li>
+          <li>Consistent nahi rehte</li>
+        </ul>
+      </div>
+      <div class="oc good">
+        <div class="pct">5%</div>
+        <h4>Actually succeed karte hain</h4>
+        <ul>
+          <li>Daily post + engagement</li>
+          <li>Niche specific content</li>
+          <li>12-18 mahine consistent</li>
+          <li>Strategy + execution dono</li>
+        </ul>
+      </div>
+    </div>
+    <div style="background:#1e1e1e;border-radius:14px;padding:22px;margin-top:20px;border-left:5px solid #f97316">
+      <p style="font-size:.95rem;color:#f1f1f1;font-weight:600">🎯 Tumhare Paas Jo Advantage Hai:</p>
+      <p style="color:#94a3b8;font-size:.88rem;margin-top:7px">AI image banane ki speed + text overlay skill + blog experience + Tata ne notice kiya — ye combination bahut kam logon ke paas hota hai. 5% mein aana possible hai, lekin sirf <strong style="color:#f97316">daily action</strong> se.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="divider"></div>
+
+<!-- NICHE -->
+<div class="section niche-section">
+  <div class="container">
+    <div class="sec-title">Konsa <span>Niche Choose Karo</span></div>
+    <div class="sec-sub">Tumhari AI image + text overlay skill ke liye best niches — honest comparison</div>
+    <div class="niche-grid">
+
+      <div class="nc top">
+        <div class="top-badge" style="background:#f97316;color:#fff">⭐ BEST FOR YOU</div>
+        <div class="nc-icon">🏠</div>
+        <h3>Real Estate Facts India</h3>
+        <div class="nsub">Blue Ocean — Competition Almost Zero</div>
+        <div class="nstat">
+          <div class="ns"><div class="v">25K</div><div class="l">followers pe deal</div></div>
+          <div class="ns"><div class="v">₹50K+</div><div class="l">per month possible</div></div>
+          <div class="ns"><div class="v">Low</div><div class="l">competition</div></div>
+          <div class="ns"><div class="v">High</div><div class="l">paying brands</div></div>
+        </div>
+        <p style="font-size:.82rem;color:#94a3b8;margin-bottom:10px">Brand deals milenge:</p>
+        <span class="dtag">Local Builders</span><span class="dtag">Housing.com</span><span class="dtag">99acres</span><span class="dtag">Home Loans</span><span class="dtag">Interior Designers</span><span class="dtag">Referral Commission</span>
+      </div>
+
+      <div class="nc top2">
+        <div class="top-badge" style="background:#3b82f6;color:#fff">🚀 FASTEST GROWTH</div>
+        <div class="nc-icon">💰</div>
+        <h3>Business Facts & Startup Stories</h3>
+        <div class="nsub">Marketing Growmatics = 1.6M — Proven Format</div>
+        <div class="nstat">
+          <div class="ns"><div class="v">50K</div><div class="l">followers pe deal</div></div>
+          <div class="ns"><div class="v">₹80K+</div><div class="l">per month 1L pe</div></div>
+          <div class="ns"><div class="v">Medium</div><div class="l">competition</div></div>
+          <div class="ns"><div class="v">Fast</div><div class="l">viral growth</div></div>
+        </div>
+        <p style="font-size:.82rem;color:#94a3b8;margin-bottom:10px">Brand deals milenge:</p>
+        <span class="dtag">Groww/Zerodha</span><span class="dtag">Business Courses</span><span class="dtag">Razorpay</span><span class="dtag">Zoho</span><span class="dtag">Fintech Apps</span>
+      </div>
+
+      <div class="nc">
+        <div class="nc-icon">🏆</div>
+        <h3>Motivation / Success Quotes</h3>
+        <div class="nsub">AttitudeWillpower = 196K — Easy Format</div>
+        <div class="nstat">
+          <div class="ns"><div class="v">50K</div><div class="l">followers pe deal</div></div>
+          <div class="ns"><div class="v">₹30K</div><div class="l">per month</div></div>
+          <div class="ns"><div class="v">Very High</div><div class="l">competition</div></div>
+          <div class="ns"><div class="v">Medium</div><div class="l">growth</div></div>
+        </div>
+        <p style="font-size:.82rem;color:#94a3b8;margin-bottom:10px">Brand deals:</p>
+        <span class="dtag">Online Courses</span><span class="dtag">EdTech</span><span class="dtag">Books</span><span class="dtag">Coaching</span>
+      </div>
+
+      <div class="nc">
+        <div class="nc-icon">📚</div>
+        <h3>Student / Exam Motivation</h3>
+        <div class="nsub">Biggest audience India mein</div>
+        <div class="nstat">
+          <div class="ns"><div class="v">30K</div><div class="l">followers pe deal</div></div>
+          <div class="ns"><div class="v">₹25K</div><div class="l">per month</div></div>
+          <div class="ns"><div class="v">High</div><div class="l">competition</div></div>
+          <div class="ns"><div class="v">Fast</div><div class="l">growth</div></div>
+        </div>
+        <p style="font-size:.82rem;color:#94a3b8;margin-bottom:10px">Brand deals:</p>
+        <span class="dtag">Testbook</span><span class="dtag">Physics Wallah</span><span class="dtag">Stationery</span><span class="dtag">Laptops</span>
+      </div>
+
+
+
+
+        <div class="nc">
+        <div class="nc-icon"> 💊</div>
+        <h3>HEALTH FACTS / FITNESS</h3>
+        <div class="nsub">Biggest audience India mein</div>
+        <div class="nstat">
+          <div class="ns"><div class="v">30K</div><div class="l">followers pe deal</div></div>
+          <div class="ns"><div class="v">₹25K</div><div class="l">per month</div></div>
+          <div class="ns"><div class="v">High</div><div class="l">competition</div></div>
+          <div class="ns"><div class="v">Fast</div><div class="l">growth</div></div>
+        </div>
+        <p style="font-size:.82rem;color:#94a3b8;margin-bottom:10px">Brand deals:</p>
+        <span class="dtag">Testbook</span><span class="dtag">Health supplements</span><span class="dtag">Fitness apps</span><span class="dtag">Organic food brands</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SCHEDULE -->
+<div class="section sched-section">
+  <div class="container">
+    <div class="sec-title">90 Din Ka <span>Exact Schedule</span></div>
+    <div class="sec-sub">Har hafte kya karna hai — specific tasks ke saath</div>
+
+    <div class="phase">
+      <div class="ph p1">
+        <div class="pnum">1</div>
+        <div class="pht"><h3>Phase 1: Foundation (Din 1–30)</h3><p>Setup + Content machine + Pehle 1,000 followers</p></div>
+      </div>
+      <div class="pbody">
+        <div class="wrow">
+          <div class="wlbl">WEEK 1<br>Din 1-7</div>
+          <div class="wtasks">
+            <div class="ti must"><span>🎯</span><div><strong>Naya Instagram account banao</strong><span>@realestate.facts.india ya @businesssach.india — exact niche naam rakho</span></div></div>
+            <div class="ti must"><span>📝</span><div><strong>Bio perfect likho</strong><span>"🏠 India ke shocking Real Estate Facts | Daily Post | Buyers ke liye guide | Link in bio"</span></div></div>
+            <div class="ti cont"><span>🖼️</span><div><strong>Pehle 21 posts ready karo — 3 weeks ka stock</strong><span>Leonardo AI image + Claude text overlay = 15-20 min per post. Roz 3 posts banao pehle hafte mein</span></div></div>
+            <div class="ti grow"><span>👥</span><div><strong>50 related pages follow karo</strong><span>Same niche ke pages — engage karo unke comments mein genuinely</span></div></div>
+          </div>
+        </div>
+        <div class="wrow">
+          <div class="wlbl">WEEK 2<br>Din 8-14</div>
+          <div class="wtasks">
+            <div class="ti cont"><span>📅</span><div><strong>Posting schedule fix — roz 3 posts</strong><span>8 AM + 1 PM + 8 PM — Buffer ya Later app se schedule karo advance mein</span></div></div>
+            <div class="ti grow"><span>💬</span><div><strong>Daily 30 min engagement — mandatory</strong><span>10 comments on big pages + reply to all your comments + 5 story replies</span></div></div>
+            <div class="ti must"><span>📊</span><div><strong>Har post ka performance note karo</strong><span>Likes, saves, shares — jo post zyada perform kare usi type ke 3 aur banao</span></div></div>
+          </div>
+        </div>
+        <div class="wrow">
+          <div class="wlbl">WEEK 3-4<br>Din 15-30</div>
+          <div class="wtasks">
+            <div class="ti cont"><span>🔥</span><div><strong>3 content types rotate karo</strong><span>Type A: Shocking comparison | Type B: Hidden fact | Type C: List format — dekho konsa zyada save hota hai</span></div></div>
+            <div class="ti grow"><span>📢</span><div><strong>WhatsApp groups mein share karo</strong><span>Real estate groups, business groups, family groups — organic reach fastest yahan se aata hai</span></div></div>
+            <div class="ti must"><span>🎯</span><div><strong>Target: 500-1,500 followers by day 30</strong><span>Agar 500 bhi nahi aaye — niche ya format badlo. 500+ aaye — same karo aur consistency double karo</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph p2">
+        <div class="pnum">2</div>
+        <div class="pht"><h3>Phase 2: Growth (Din 31–60)</h3><p>5,000 followers target + Pehli brand deal ka attempt</p></div>
+      </div>
+      <div class="pbody">
+        <div class="wrow">
+          <div class="wlbl">WEEK 5-6<br>Din 31-45</div>
+          <div class="wtasks">
+            <div class="ti cont"><span>📈</span><div><strong>Top 3 performing posts ka format clone karo</strong><span>Jo post 100+ saves aaya — same style, same format, different topic. Algorithm same content zyada push karta hai</span></div></div>
+            <div class="ti grow"><span>🤝</span><div><strong>5 similar size pages ko collab ke liye DM karo</strong><span>"Bhai, ek dusre ke posts share karein?" — Free cross-promotion sabse effective early growth strategy</span></div></div>
+            <div class="ti cont"><span>❓</span><div><strong>Poll + Question stories shuru karo</strong><span>"Mumbai ya Delhi — kahan invest karna chahiye?" — Engagement badhta hai, algorithm notice karta hai</span></div></div>
+          </div>
+        </div>
+        <div class="wrow">
+          <div class="wlbl">WEEK 7-8<br>Din 46-60</div>
+          <div class="wtasks">
+            <div class="ti money"><span>💰</span><div><strong>5,000 followers pe — local builders ko DM karo</strong><span>"Mere 5,000 followers real estate buyers hain. Ek post ₹2,000 mein." — Local builders haan karte hain</span></div></div>
+            <div class="ti must"><span>📊</span><div><strong>Best posting time find karo</strong><span>Instagram Insights dekho — konse din, konse time pe reach zyada hai — usi time schedule karo</span></div></div>
+            <div class="ti cont"><span>🔄</span><div><strong>Carousel posts shuru karo</strong><span>"Top 7 cities ₹50L investment ke liye — Swipe 👉" — Multiple slides = more time on post = more reach</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="ph p3">
+        <div class="pnum">3</div>
+        <div class="pht"><h3>Phase 3: Monetization (Din 61–90)</h3><p>10,000-25,000 followers + Regular income shuru karo</p></div>
+      </div>
+      <div class="pbody">
+        <div class="wrow">
+          <div class="wlbl">WEEK 9-10<br>Din 61-75</div>
+          <div class="wtasks">
+            <div class="ti money"><span>📋</span><div><strong>Media kit banao — brands ko professionally approach karo</strong><span>Ek PDF: followers count, engagement rate, audience demographics, post examples, pricing list</span></div></div>
+            <div class="ti money"><span>🔗</span><div><strong>Affiliate links add karo — passive income</strong><span>Housing.com, 99acres affiliate program join karo — har referral pe commission. Zero cost, passive earnings</span></div></div>
+            <div class="ti grow"><span>📺</span><div><strong>Reels shuru karo — 15-30 sec</strong><span>CapCut mein images + text animation + trending audio = Reel ready in 10 min. Reach 10x ho jaati hai</span></div></div>
+          </div>
+        </div>
+        <div class="wrow">
+          <div class="wlbl">WEEK 11-12<br>Din 76-90</div>
+          <div class="wtasks">
+            <div class="ti money"><span>📧</span><div><strong>Bigger brands ko email karo</strong><span>Housing.com, MagicBricks — professional email with media kit. 10K+ followers pe response aata hai</span></div></div>
+            <div class="ti must"><span>📊</span><div><strong>90 din ka full review karo</strong><span>Followers count, best content, income earned — data se next 90 din ka plan banao</span></div></div>
+            <div class="ti grow"><span>🎯</span><div><strong>Target: 10,000-25,000 followers by day 90</strong><span>Realistic agar roz 3 posts + daily engagement. Ek viral post se isse zyada bhi ho sakta hai</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FORMULA -->
+<div class="section formula-section">
+  <div class="container">
+    <div class="sec-title">Content <span>Formulas</span> — Jo Viral Hote Hain</div>
+    <div class="sec-sub">In 3 formats ko rotate karo — har din different type post karo</div>
+    <div class="fgrid">
+      <div class="fc">
+        <h4>Type A — Shocking Comparison <span class="fb fv">MOST VIRAL</span></h4>
+        <div class="fex">Mumbai mein ₹1 Crore mein
+sirf 325 sq ft milta hai.
+
+Same ₹1 Crore mein
+Jaipur mein 2500 sq ft
+ka bungalow milta hai.
+
+City choose karo wisely. 🏠</div>
+        <p class="fwhy">→ Controversy + surprise = share hota hai. Logo ko argue karna pasand hai comments mein — algorithm ko yahi chahiye.</p>
+      </div>
+      <div class="fc">
+        <h4>Type B — Hidden Fact <span class="fb fs">SAVES AATE HAIN</span></h4>
+        <div class="fex">Zomato ka pehla office
+ek 1BHK flat tha.
+
+Pehle employee ne
+6 mahine bina salary ke kaam kiya.
+
+Aaj company 1.8 lakh
+crore ki hai.
+
+Shuru karna zaroori hai,
+perfect hona nahi. 💡</div>
+        <p class="fwhy">→ Saves zyada aate hain. Algorithm saves ko reach ke liye sabse zyada value deta hai — is format pe focus karo.</p>
+      </div>
+      <div class="fc">
+        <h4>Type C — List / Guide Format <span class="fb fm">BRAND DEALS</span></h4>
+        <div class="fex">Property lene se pehle
+ye 5 cheezein check karo:
+
+1. RERA registered hai ya nahi
+2. Builder ka track record
+3. Location ka future plan
+4. Hidden charges list
+5. Loan pre-approval
+
+Save karo — kaam aayega 📌</div>
+        <p class="fwhy">→ "Save karo" = saves boost. Brands is type pe sponsor karna pasand karte hain kyunki audience genuinely engaged hoti hai.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- INCOME -->
+<div class="section income-section">
+  <div class="container">
+    <div class="sec-title">Income <span>Reality Check</span> — Honest Numbers</div>
+    <div class="sec-sub">Real Estate niche ke liye — consistent daily posting aur engagement ke saath</div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a2a">
+      <table class="itbl">
+        <thead>
+          <tr><th>Timeline</th><th>Expected Followers</th><th>Income Source</th><th>Monthly Income</th><th>Condition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Month 1</td><td>500 – 2,000</td><td class="tgr">Kuch nahi</td><td class="tgr">₹0</td><td style="color:#4b5563;font-size:.8rem">Sirf build karo</td></tr>
+          <tr><td>Month 2</td><td>2,000 – 8,000</td><td>Local builder promotions</td><td class="ty">₹3,000 – 12,000</td><td style="color:#4b5563;font-size:.8rem">5K+ pe DM karo</td></tr>
+          <tr><td>Month 3</td><td>8,000 – 25,000</td><td>Multiple promotions + affiliate</td><td class="ty">₹15,000 – 50,000</td><td style="color:#4b5563;font-size:.8rem">10K pe brands respond</td></tr>
+          <tr><td>Month 6</td><td>30,000 – 80,000</td><td>Brands + referral commission</td><td class="tg">₹50,000 – 1,50,000</td><td style="color:#4b5563;font-size:.8rem">Ek flat sale = ₹20K-50K</td></tr>
+          <tr><td>Month 12</td><td>1,00,000+</td><td>Big brands + multiple streams</td><td class="tg">₹1,50,000 – 5,00,000</td><td style="color:#4b5563;font-size:.8rem">Poora saal consistent raho</td></tr>
+          <tr><td>Year 2-3</td><td>5,00,000+</td><td>Premium brands + own product</td><td class="tg">₹5,00,000 – 20,00,000</td><td style="color:#4b5563;font-size:.8rem">Tab crore realistic hai</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.25);border-radius:10px;padding:18px;margin-top:18px">
+      <p style="color:#f87171;font-weight:600;font-size:.88rem">⚠️ Important:</p>
+      <p style="color:#94a3b8;font-size:.84rem;margin-top:6px">Ye numbers tab hain jab roz 3 posts + daily 30 min engagement + weekly analysis. Sirf post karke bhool gaye toh in numbers ka 20% bhi nahi milega. <strong style="color:#f87171">Engagement ke bina followers bekar hain.</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TOOLS -->
+<div class="section tools-section">
+  <div class="container">
+    <div class="sec-title">Tools <span>Complete List</span></div>
+    <div class="sec-sub">Ye sab tumhe chahiye — mostly free</div>
+    <div class="tgrid">
+      <div class="tc"><h5>Leonardo AI</h5><p>Cinematic images generate karo — har topic ke liye background</p><span class="tf">Free Plan</span></div>
+      <div class="tc"><h5>Claude AI</h5><p>Text overlay content, captions, hashtags, facts — sab likhwao</p><span class="tf">Free Plan</span></div>
+      <div class="tc"><h5>Canva</h5><p>Text overlay easy drag-drop — templates available hain</p><span class="tf">Free Plan</span></div>
+      <div class="tc"><h5>CapCut</h5><p>Images se Reels banao — templates, 10 min mein ready</p><span class="tf">Free</span></div>
+      <div class="tc"><h5>Buffer / Later</h5><p>Posts advance mein schedule karo — roz manually nahi karna</p><span class="tf">Free Tier</span></div>
+      <div class="tc"><h5>Instagram Insights</h5><p>Best time, best content type — built-in analytics</p><span class="tf">Free — Built In</span></div>
+      <div class="tc"><h5>Squoosh.app</h5><p>Images WebP compress — fast upload, better quality</p><span class="tf">Free</span></div>
+      <div class="tc"><h5>Linktree</h5><p>Bio mein ek link se sab — blog, WhatsApp, website</p><span class="tf">Free Plan</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- DM TEMPLATES -->
+<div class="section dm-section">
+  <div class="container">
+    <div class="sec-title">Brand Deal <span>DM Templates</span></div>
+    <div class="sec-sub">Copy karo aur directly use karo — tested format</div>
+
+    <div class="dc">
+      <h4>📩 Template 1 — Local Builder ko DM (5K+ followers pe)</h4>
+      <div class="dtext">Namaste [Builder Name] ji,
+
+Main [tumhara naam] hoon — @[page_name] Instagram page run karta hoon jo real estate facts aur property advice ke baare mein hai.
+
+Mere page par abhi [X] followers hain jinmein zyaadatar [city name] ke property buyers aur investors hain.
+
+Aapke [project name] ke baare mein ek post karna chahta hoon jisse aapke potential buyers tak reach ho sake.
+
+Ek promotional post ki fee ₹[amount] hai.
+
+Kya aap interested hain?
+
+Dhanyawad 🙏</div>
+      <p class="dnote">💡 5K-10K followers pe ₹1,500-3,000 maango. 10K-25K pe ₹3,000-8,000. Local builders almost haan karte hain — unhe Instagram ki zaroorat hai aur budget hota hai.</p>
+    </div>
+
+    <div class="dc">
+      <h4>📩 Template 2 — Tata Motors / Big Brand Email</h4>
+      <div class="dtext">Hello [Brand] Social Media Team,
+
+I run @vishtechcars — India's growing automotive review page with [X] followers focused on car buyers in the ₹15-35 lakh segment.
+
+Your team recently liked one of our posts, which inspired me to reach out.
+
+We create high-quality AI-assisted car reviews and have an engaged audience of genuine car buyers.
+
+We'd love to explore collaboration — test drive opportunity, sponsored review, or brand partnership.
+
+Please find our media kit attached.
+
+Looking forward to connecting!
+
+[Tumhara naam]
+vishtechcars.com</div>
+      <p class="dnote">💡 Email better hai Instagram DM se big brands ke liye. LinkedIn pe "social media manager @tatamotors" dhundho aur direct email karo.</p>
+    </div>
+
+    <div class="dc">
+      <h4>📩 Template 3 — Same Size Pages Collab Request</h4>
+      <div class="dtext">Hey [page name]! 👋
+
+Tumhara content bahut achha hai — especially [specific post mention karo].
+
+Main bhi similar niche mein hoon — @[page_name] — abhi [X] followers hain.
+
+Ek dusre ke posts share karein? Dono ke followers grow honge bina kisi cost ke.
+
+Interested ho toh reply karo 🤝</div>
+      <p class="dnote">💡 3-5 similar size pages ko ye bhejo. 2-3 haan karenge. Free cross-promotion sabse effective early growth strategy hai — zero cost.</p>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CHECKLIST -->
+<div class="section check-section">
+  <div class="container">
+    <div class="sec-title">Daily / Weekly <span>Checklist</span></div>
+    <div class="sec-sub">Click karke tick karo — isko bookmark karo aur roz follow karo</div>
+    <div class="cgrid">
+
+      <div class="cg">
+        <h4 style="color:#f97316">📅 Roz Karna Hai (30-45 min)</h4>
+        <div class="ci"><div class="cb"></div>3 posts schedule/post karo (8AM, 1PM, 8PM)</div>
+        <div class="ci"><div class="cb"></div>10 related pages pe genuine comments karo</div>
+        <div class="ci"><div class="cb"></div>Apne posts ke saare comments ka reply karo</div>
+        <div class="ci"><div class="cb"></div>1 story post karo — poll ya question</div>
+        <div class="ci"><div class="cb"></div>Instagram Insights check karo — kya perform kiya</div>
+        <div class="ci"><div class="cb"></div>1 naya post ka content ready karo kal ke liye</div>
+      </div>
+
+      <div class="cg">
+        <h4 style="color:#3b82f6">📆 Hafte Mein Karna Hai</h4>
+        <div class="ci"><div class="cb"></div>Top 3 posts identify karo — format clone karo</div>
+        <div class="ci"><div class="cb"></div>1 Reel banao CapCut mein — same content se</div>
+        <div class="ci"><div class="cb"></div>2 collab DM bhejo similar pages ko</div>
+        <div class="ci"><div class="cb"></div>WhatsApp groups mein best post share karo</div>
+        <div class="ci"><div class="cb"></div>Next hafte ka content plan karo — 21 posts</div>
+        <div class="ci"><div class="cb"></div>Followers count note karo — growth track karo</div>
+      </div>
+
+      <div class="cg">
+        <h4 style="color:#22c55e">📊 Mahine Mein Karna Hai</h4>
+        <div class="ci"><div class="cb"></div>5 local brands ko deal ke liye DM karo</div>
+        <div class="ci"><div class="cb"></div>Best performing content ka analysis karo</div>
+        <div class="ci"><div class="cb"></div>Audience demographics check karo Insights mein</div>
+        <div class="ci"><div class="cb"></div>Hashtag performance review karo — update karo</div>
+        <div class="ci"><div class="cb"></div>Affiliate link performance check karo</div>
+        <div class="ci"><div class="cb"></div>Agle mahine ki strategy data se adjust karo</div>
+      </div>
+
+      <div class="cg">
+        <h4 style="color:#f87171">🚫 Ye Bilkul Mat Karo</h4>
+        <div class="ci"><div class="cb"></div>Followers khareedna — account ban ho jaata hai</div>
+        <div class="ci"><div class="cb"></div>Doosre pages ka content copy karna — copyright</div>
+        <div class="ci"><div class="cb"></div>Ek din 50+ follow/unfollow — shadowban milta hai</div>
+        <div class="ci"><div class="cb"></div>3+ din posting band karna — reach girta hai</div>
+        <div class="ci"><div class="cb"></div>Sab niches ek saath try karna — focus rakho</div>
+        <div class="ci"><div class="cb"></div>30 din mein results expect karna — patience rakho</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- VERDICT -->
+<div class="verdict">
+  <div class="container">
+    <div class="sec-title" style="color:#fff">Final <span>Verdict</span></div>
+    <p style="color:#94a3b8;font-size:.95rem;max-width:620px;margin:0 auto">Agar ye sab consistently karo — realistic expectations ke saath</p>
+    <div class="vgrid">
+      <div class="vi"><div class="vico">📅</div><h4>90 Din Mein</h4><p>10K–25K followers. Pehli ₹5K-15K income shuru.</p></div>
+      <div class="vi"><div class="vico">📆</div><h4>6 Mahine Mein</h4><p>50K+ followers. ₹30K-1L/month realistic.</p></div>
+      <div class="vi"><div class="vico">🗓️</div><h4>1 Saal Mein</h4><p>1L+ followers. ₹1.5L-5L/month possible.</p></div>
+      <div class="vi"><div class="vico">🏆</div><h4>2-3 Saal Mein</h4><p>Tab crore ki income possible — own product ke saath.</p></div>
+    </div>
+    <div style="background:rgba(249,115,22,.1);border:2px solid #f97316;border-radius:18px;padding:28px;max-width:680px;margin:36px auto 0">
+      <p style="font-size:1rem;font-weight:800;color:#f97316;margin-bottom:10px">🎯 Ek Seedhi Baat</p>
+      <p style="color:#d1d5db;font-size:.9rem;line-height:1.9">Koi bhi 100% guarantee nahi de sakta. Lekin ek cheez guaranteed hai: <strong style="color:#fff">jo kuch nahi karega, usse kuch nahi milega.</strong> Tumhare paas AI image skill hai, text overlay skill hai — ye combination bahut kam logon ke paas hai. Real Estate ya Business niche mein consistently 90 din karo. Result zaroor aayega — exactly kitna, woh tumhare consistency pe depend karta hai.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Ye guide <strong>VishTechCars</strong> ke liye banaya gaya — Claude AI dwara</p>
+  <p style="margin-top:6px">Honest advice | No fake promises | Real strategy based on real data</p>
+  <p style="margin-top:14px;font-size:.75rem">© 2026 — Personal use only</p>
+</footer>
+
+<script>
+document.querySelectorAll('.cb').forEach(b=>{
+  b.addEventListener('click',function(){
+    const done=this.style.background==='rgb(249, 115, 22)';
+    this.style.background=done?'':'#f97316';
+    this.style.borderColor=done?'#333':'#f97316';
+    this.parentElement.style.opacity=done?'1':'0.45';
+  });
+});
+</script>
+</body>
+</html>
